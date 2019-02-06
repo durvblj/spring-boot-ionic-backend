@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.durval.cursomc.domain.Categoria;
+import com.durval.cursomc.dto.CategoriaDto;
 import com.durval.cursomc.repositories.CategoriaRepository;
 import com.durval.cursomc.services.exception.DateIntegrityException;
 import com.durval.cursomc.services.exception.ObjectNotFoundException;
@@ -58,4 +59,19 @@ public class CategoriaService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
 	}	
+	
+	
+	public Categoria fromDto(CategoriaDto objDto ) {
+		
+		return new Categoria(objDto.getId(), objDto.getNome());
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
