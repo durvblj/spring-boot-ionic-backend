@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.durval.cursomc.domain.Cliente;
 import com.durval.cursomc.dto.ClienteDto;
+import com.durval.cursomc.dto.ClienteNewDto;
 import com.durval.cursomc.services.ClienteService;
 
 @RestController
@@ -35,13 +36,13 @@ public class ClienteResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-//	@RequestMapping(method = RequestMethod.POST)
-//	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteDto objDto) {
-//		Cliente obj = service.fromDto(objDto);
-//		obj = service.insert(obj);
-//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-//		return ResponseEntity.created(uri).build();
-//	}
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDto objDto) {
+		Cliente obj = service.fromDto(objDto);
+		obj = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
+	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody ClienteDto objDto, @PathVariable Integer id) {		
