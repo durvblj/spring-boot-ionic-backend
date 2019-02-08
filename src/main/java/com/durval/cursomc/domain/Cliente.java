@@ -30,10 +30,10 @@ public class Cliente implements Serializable {
 	
 	@Column(unique=true)
 	private String email;
-	private String cpf;
-	private Integer tipo;
+	private String cpfOuCnpj;
+	private Integer tipo;	
 
-	@OneToMany(mappedBy = "cliente", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente" , cascade=CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
 
 	@ElementCollection
@@ -45,7 +45,6 @@ public class Cliente implements Serializable {
 	private List<Pedido> pedidos = new ArrayList<>();;
 
 	public Cliente() {
-
 	}
 
 	public Cliente(Integer id, String nome, String email, String cpf, TipoCliente tipo) {
@@ -53,7 +52,7 @@ public class Cliente implements Serializable {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.cpf = cpf;
+		this.cpfOuCnpj = cpf;
 		this.tipo = (tipo == null) ? null : tipo.getCod();
 	}
 
@@ -80,14 +79,15 @@ public class Cliente implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getCpf() {
-		return cpf;
+	
+	public String getCpfOuCnpj() {
+		return cpfOuCnpj;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setCpfOuCnpj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
 	}
+	
 
 	public TipoCliente getTipo() {
 		return TipoCliente.toEnum(tipo);

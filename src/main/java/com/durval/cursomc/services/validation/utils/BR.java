@@ -1,4 +1,4 @@
-package com.durval.cursomc.services.validation.util;
+package com.durval.cursomc.services.validation.utils;
 
 public class BR {
 
@@ -28,11 +28,11 @@ public class BR {
 
 	}
 
-	/**	 
+	/**
 	 * Valida CPF
 	 * 
-	 * @param ssn 
-	 * @return	
+	 * @param ssn
+	 * @return
 	 */
 
 	public static boolean isValidCPF(final String ssn) {
@@ -48,11 +48,11 @@ public class BR {
 
 	}
 
-	/** 
+	/**
 	 * Valida CNPJ
-	 
-	 * @param tin	 
-	 * @return 
+	 * 
+	 * @param tin
+	 * @return
 	 */
 
 	public static boolean isValidCNPJ(final String tin) {

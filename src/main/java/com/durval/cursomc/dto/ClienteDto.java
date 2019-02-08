@@ -8,10 +8,12 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.durval.cursomc.domain.Cliente;
+import com.durval.cursomc.services.validation.ClienteUpdate;
 
+
+@ClienteUpdate
 public class ClienteDto implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 	
 	private Integer id;
 	
@@ -20,10 +22,11 @@ public class ClienteDto implements Serializable {
 	private String nome;
 	
 	@NotEmpty(message="Preenchimento obrigatório")
-	@Email(message="O tamanho deve ser entre 5 e 120 caracteres")
+	@Email(message="Email inválido")
 	private String email;
 	
-	ClienteDto(){}
+	public ClienteDto(){		
+	}
 
 	public ClienteDto(Cliente obj) {
 		id = obj.getId();
